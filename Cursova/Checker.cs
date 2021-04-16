@@ -6,7 +6,7 @@ namespace Cursova
 {
     public class Checker
     {
-        const string alfabet = " абвгґдеєжзиіїйклмнопрстуфхцчшщьюя";
+        const string alfabet = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя";
 
         public string ErrorText(string key)
         {
@@ -19,6 +19,10 @@ namespace Cursova
         public bool IsOnlyUkrainianLetters(string key)
         {
             string fullAlphabet = alfabet + alfabet.ToUpper();
+            if(key == "")
+            {
+                return false;
+            }
             for (int i = 0; i < key.Length; i++)
             {
                 if (!fullAlphabet.Contains(key[i]))

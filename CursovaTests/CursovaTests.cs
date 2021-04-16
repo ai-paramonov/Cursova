@@ -302,6 +302,20 @@ namespace CursovaTests
             Assert.False(actual);
         }
         [Fact]
+        public void IsOnlyUkrainianLetters_ShouldReturnFalse_IfKeyIsEmpty()
+        {
+            //Arrange
+            Request request = new Request();
+            var key = request.VigenereKey = "";
+
+            //Act
+            var actual = checker.IsOnlyUkrainianLetters(key);
+
+            //Assert
+
+            Assert.False(actual);
+        }
+        [Fact]
         public void IsOnlyUkrainianLetters_ShouldReturnTrue_IfEverythingOk()
         {
             //Arrange
@@ -380,7 +394,7 @@ namespace CursovaTests
         public void IsKeyCaesarValueIsValid_ShouldReturnTrue_WhenKeyIsOk()
         {
             //Arrange
-            var key = "33";
+            var key = "32";
             var secondKey = "1";
             var thirdKey = "23";
 
