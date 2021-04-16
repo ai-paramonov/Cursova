@@ -140,8 +140,8 @@ namespace Cursova.Services
         private string EncryptDecrypt(string text, string symbols, string cipher)
         {
             //переводим текст в нижній регістр
-            text = text.ToLower();
-
+            symbols += symbols.ToUpper().Replace(" ","");
+            cipher += cipher.ToUpper().Replace(" ", "");
             var outputText = string.Empty;
             for (var i = 0; i < text.Length; i++)
             {
@@ -151,7 +151,9 @@ namespace Cursova.Services
                 {
                     //замінв символу на шифр
                     outputText += cipher[index].ToString();
+                    continue;
                 }
+                outputText += text[i];
             }
 
             return outputText;

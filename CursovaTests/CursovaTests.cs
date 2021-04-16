@@ -226,6 +226,34 @@ namespace CursovaTests
             //Assert
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void GetEncryptAtbushMessage_ShouldReturnCorrectResult()
+        {
+            //Arrange
+            requestService.request.Message = "Ëטסעÿ מןאהא÷ ח הונוג, א ג³עונ ן³הץמןכ‏÷ ימדמ";
+
+            //Act
+
+            var actual = requestService.GetEncryptAtbushMessage();
+            var expected = "Íסטח ÿי¿‏צ‏פÿעÿצץ³ץש,ÿ‏ÿשנחץ³ÿ¿נצוי¿לאפÿמירי";
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void GetDecryptAtbushMessage_ShouldReturnCorrectResult()
+        {
+            //Arrange
+            requestService.request.Message = "Íסטח ÿי¿‏צ‏פÿעÿצץ³ץש,ÿ‏ÿשנחץ³ÿ¿נצוי¿לאפÿמירי";
+
+            //Act
+
+            var actual = requestService.GetDecryptAtbushMessage();
+            var expected = "Ëטסעÿ מןאהא÷ ח הונוג, א ג³עונ ן³הץמןכ‏÷ ימדמ";
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
     }
     public class CheckerTests
     {
@@ -336,7 +364,7 @@ namespace CursovaTests
             Assert.False(actual);
         }
         [Fact]
-        public void IsKeyCaesarValueIsValid_ShouldReturnFalse_WhenKeyHigherThan_32()
+        public void IsKeyCaesarValueIsValid_ShouldReturnFalse_WhenKeyHigherThan_33()
         {
             //Arrange
             var key = "34";
