@@ -31,13 +31,13 @@ namespace CursovaTests
             var operation = request.Operation;
 
             Request requestSecond = CreateTestRequest(null, null, Operations.Encrypt, Method.Caesar, 0, null);
-            var operationSecond = request.Operation;
+            var operationSecond = requestSecond.Operation;
 
             //Act
             requestService.GetOperationFromPresenter(operation);
             var actual = requestService.request.Operation;
 
-            requestService.GetOperationFromPresenter(operation);
+            requestService.GetOperationFromPresenter(operationSecond);
             var actualSecond = requestService.request.Operation;
 
             //Assert
